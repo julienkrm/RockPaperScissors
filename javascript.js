@@ -43,27 +43,34 @@ function playOneGame() {
 // si les 2 sont égaux
     if (player === comp) {
         console.log(`Tie ! ${player} is the same as ${comp}`);
+        return 0;
     } else if (player === "Rock") {
         if (comp === "Paper") {
             console.log(`You Lose! ${comp} beats ${player}`);
+            return 0;
         } else if (comp === "Scissors") {
             console.log(`You Won! ${player} beats ${comp}`);
+            return 1;
         } else {
             console.log("erreur");
         }
     } else if (player === "Paper") {
         if (comp === "Scissors") {
             console.log(`You Lose! ${comp} beats ${player}`);
+            return 0;
         } else if (comp === "Rock") {
             console.log(`You Won! ${player} beats ${comp}`);
+            return 1;
         } else {
             console.log("erreur");
         }
     } else if (player === "Scissors") {
         if (comp === "Rock") {
             console.log(`You Lose! ${comp} beats ${player}`);
+            return 0;
         } else if (comp === "Paper") {
             console.log(`You Won! ${player} beats ${comp}`);
+            return 1;
         } else {
             console.log("erreur");
         }
@@ -71,4 +78,24 @@ function playOneGame() {
 }
 
 
+function game(nbgames) {
+// crée une variabloe score
 
+// lance une boucle qui va tourner 5 fois
+/*    lance la partie
+    incrémente le score 
+    si score < 2 affiche gagnant
+    sinon affiche perdant */
+
+    let score = 0;
+
+    for (let i = 0; i < nbgames; i++) {
+        score += playOneGame();
+    }
+    if (score >= (nbgames /2)) {
+        console.log(`Your score is ${score}. You Won !`);
+    } else {
+        console.log(`Your score is ${score}. You lose :(`);
+    }
+
+}
