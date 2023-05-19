@@ -33,14 +33,42 @@ function getUserChoice() {
 
 // créer une fonction qui compare les 2 ? function compareChoices(players, computers) 
 
-function playOneGame(playerSelection, computerSelection) {
+function playOneGame() {
     // appel du choix du joueur
-
-
+    let player = getUserChoice();
     // appel du choix de l'ordinateur
-
-
+    let comp = getComputerChoice();
     // comparaison et message
 
-    if (playerSelection
+// si les 2 sont égaux
+    if (player === comp) {
+        console.log(`Tie ! ${player} is the same as ${comp}`);
+    } else if (player === "Rock") {
+        if (comp === "Paper") {
+            console.log(`You Lose! ${comp} beats ${player}`);
+        } else if (comp === "Scissors") {
+            console.log(`You Won! ${player} beats ${comp}`);
+        } else {
+            console.log("erreur");
+        }
+    } else if (player === "Paper") {
+        if (comp === "Scissors") {
+            console.log(`You Lose! ${comp} beats ${player}`);
+        } else if (comp === "Rock") {
+            console.log(`You Won! ${player} beats ${comp}`);
+        } else {
+            console.log("erreur");
+        }
+    } else if (player === "Scissors") {
+        if (comp === "Rock") {
+            console.log(`You Lose! ${comp} beats ${player}`);
+        } else if (comp === "Paper") {
+            console.log(`You Won! ${player} beats ${comp}`);
+        } else {
+            console.log("erreur");
+        }
+    }
 }
+
+
+
