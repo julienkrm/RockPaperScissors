@@ -2,40 +2,23 @@
 
 function getComputerChoice() {
     let choice = "";
-    let possiblesChoices = ["Rock", "Paper", "Scissors"];
+    let possiblesChoices = ["fire", "plant", "water"];
     // fonction qui retourne aléatoirement O, 1 ou 2 :
     choice = possiblesChoices[Math.floor(Math.random() * 3)];
     console.log("The computer has chosen " + choice);
     return choice;
 }
 
-// A function that ask for 1, 2 ou 3, and returns a string with the 3 possible touches
-function getUserChoice() {
-    let userChoice = prompt("To play rock, enter 1. To play paper, enter 2. To play scissors, enter 3");
-    switch (userChoice) {
-        case "1" :
-            console.log("You chose rock");
-            return "Rock";
-            break;
-        case "2" :
-            console.log("You chose paper");
-            return "Paper";
-            break;
-        case "3" :
-            console.log("You chose Scissors");
-            return "Scissors";
-        default :
-            console.log("You didnt chose 1, 2 ou 3");
-            break;
-        
-}
-}
+
+// function getUserChoiceUI(event) {
+//     let choix = event.target.id;
+//     return choix;
+// }
+
 
 // créer une fonction qui compare les 2 ? function compareChoices(players, computers) 
 
-function playOneGame() {
-    // appel du choix du joueur
-    let player = getUserChoice();
+function playOneGame(player) {
     // appel du choix de l'ordinateur
     let comp = getComputerChoice();
     // comparaison et message
@@ -44,31 +27,31 @@ function playOneGame() {
     if (player === comp) {
         console.log(`Tie ! ${player} is the same as ${comp}`);
         return 0;
-    } else if (player === "Rock") {
-        if (comp === "Paper") {
+    } else if (player === "fire") {
+        if (comp === "water") {
             console.log(`You Lose! ${comp} beats ${player}`);
             return 0;
-        } else if (comp === "Scissors") {
+        } else if (comp === "plant") {
             console.log(`You Won! ${player} beats ${comp}`);
             return 1;
         } else {
             console.log("erreur");
         }
-    } else if (player === "Paper") {
-        if (comp === "Scissors") {
+    } else if (player === "water") {
+        if (comp === "plant") {
             console.log(`You Lose! ${comp} beats ${player}`);
             return 0;
-        } else if (comp === "Rock") {
+        } else if (comp === "fire") {
             console.log(`You Won! ${player} beats ${comp}`);
             return 1;
         } else {
             console.log("erreur");
         }
-    } else if (player === "Scissors") {
-        if (comp === "Rock") {
+    } else if (player === "plant") {
+        if (comp === "fire") {
             console.log(`You Lose! ${comp} beats ${player}`);
             return 0;
-        } else if (comp === "Paper") {
+        } else if (comp === "water") {
             console.log(`You Won! ${player} beats ${comp}`);
             return 1;
         } else {
@@ -99,3 +82,21 @@ function game(nbgames) {
     }
 
 }
+
+const fireimg =  document.getElementById("fire");
+
+ fireimg.addEventListener('click', () => {
+    playOneGame("fire");
+    });     
+
+const plantimg =  document.getElementById("plant");
+
+plantimg.addEventListener('click', () => {
+    playOneGame("plant");
+    }); 
+
+const waterimg =  document.getElementById("water");
+
+waterimg.addEventListener('click', () => {
+    playOneGame("water");
+    }); 
