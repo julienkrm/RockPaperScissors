@@ -10,19 +10,12 @@ function getComputerChoice() {
 }
 
 
-// function getUserChoiceUI(event) {
-//     let choix = event.target.id;
-//     return choix;
-// }
-
-
-// créer une fonction qui compare les 2 ? function compareChoices(players, computers) 
+// créer une fonction qui compare les 2 ? function compareChoices(player) 
 
 function playOneGame(player) {
     // appel du choix de l'ordinateur
     let comp = getComputerChoice();
     // comparaison et message
-
 // si les 2 sont égaux
     if (player === comp) {
         console.log(`Tie ! ${player} is the same as ${comp}`);
