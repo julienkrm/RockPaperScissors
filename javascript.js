@@ -1,3 +1,8 @@
+
+// selecting the paragraph with the result
+
+let displayresult = document.querySelector("#roundresult") ;
+displayresult.innerHTML = "Que la partie commence !";
 // Creating a function that will return one of the 3 possible choices :
 
 function getComputerChoice() {
@@ -10,6 +15,8 @@ function getComputerChoice() {
 }
 
 
+
+
 // créer une fonction qui compare les 2 ? function compareChoices(player) 
 
 function playOneGame(player) {
@@ -19,34 +26,34 @@ function playOneGame(player) {
 // si les 2 sont égaux
     if (player === comp) {
         console.log(`Tie ! ${player} is the same as ${comp}`);
-        return 0;
+        return "tie";
     } else if (player === "fire") {
         if (comp === "water") {
             console.log(`You Lose! ${comp} beats ${player}`);
-            return 0;
+            return "computer";
         } else if (comp === "plant") {
             console.log(`You Won! ${player} beats ${comp}`);
-            return 1;
+            return "player";
         } else {
             console.log("erreur");
         }
     } else if (player === "water") {
         if (comp === "plant") {
             console.log(`You Lose! ${comp} beats ${player}`);
-            return 0;
+            return "computer";
         } else if (comp === "fire") {
             console.log(`You Won! ${player} beats ${comp}`);
-            return 1;
+            return "player";
         } else {
             console.log("erreur");
         }
     } else if (player === "plant") {
         if (comp === "fire") {
             console.log(`You Lose! ${comp} beats ${player}`);
-            return 0;
+            return "computer";
         } else if (comp === "water") {
             console.log(`You Won! ${player} beats ${comp}`);
-            return 1;
+            return "player";
         } else {
             console.log("erreur");
         }
@@ -75,6 +82,8 @@ function game(nbgames) {
     }
 
 }
+
+// lancement de la fonction playOneGame quand on clique sur une des images
 
 const fireimg =  document.getElementById("fire");
 
